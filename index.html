@@ -40,6 +40,8 @@ label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bot
 .toast.show{transform:translateY(0);opacity:1}
 .toast.success{border-color:var(--green);color:var(--green)}
 .toast.error{border-color:var(--red);color:var(--red)}
+
+/* LANDING */
 .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 60px;border-bottom:1px solid var(--border);background:rgba(10,14,26,.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
 .logo{font-size:24px;font-weight:900;letter-spacing:-0.5px;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .logo span{font-weight:300}
@@ -76,6 +78,8 @@ label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bot
 .price-features li::before{content:'✓';color:var(--accent);font-weight:700;font-size:16px}
 .landing-footer{text-align:center;padding:40px;color:var(--muted);font-size:14px;border-top:1px solid var(--border)}
 .landing-footer strong{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+/* AUTH */
 #auth-page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px;background:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(0,194,255,.07),transparent)}
 .auth-box{width:100%;max-width:440px}
 .auth-logo{text-align:center;font-size:32px;font-weight:900;letter-spacing:-1px;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px}
@@ -88,6 +92,8 @@ label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bot
 .auth-footer a{color:var(--accent);cursor:pointer}
 .err-msg{background:rgba(239,68,68,.1);border:1px solid var(--red);color:var(--red);border-radius:8px;padding:10px 14px;font-size:13px;margin-bottom:14px}
 .success-msg{background:rgba(34,197,94,.1);border:1px solid var(--green);color:var(--green);border-radius:8px;padding:10px 14px;font-size:13px;margin-bottom:14px}
+
+/* APP */
 #app{display:flex;min-height:100vh}
 .sidebar{width:250px;min-height:100vh;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;position:fixed;top:0;left:0;z-index:50;transition:transform .3s}
 .sidebar-logo{padding:24px 22px 18px;font-size:22px;font-weight:900;letter-spacing:-0.5px;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;border-bottom:1px solid var(--border)}
@@ -117,10 +123,6 @@ label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bot
 .recent-table td{padding:13px 14px;font-size:14px;border-bottom:1px solid var(--border)}
 .recent-table tr:last-child td{border-bottom:none}
 .recent-table tr:hover td{background:rgba(255,255,255,.015)}
-.empty-state{text-align:center;color:var(--muted);padding:48px 20px}
-.empty-state .icon{font-size:40px;margin-bottom:12px}
-.empty-state .title{font-weight:700;color:var(--text);margin-bottom:6px;font-size:16px}
-.empty-state .desc{margin-bottom:18px}
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px)}
 .modal{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:28px;width:100%;max-width:480px;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow)}
 .modal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
@@ -217,7 +219,7 @@ label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bot
         <li>Revenue & Analytics Dashboard</li>
         <li>Plumbing, Electrical & Cleaning Support</li>
         <li>Mobile Friendly Interface</li>
-        <li>Secure Cloud Storage</li>
+        <li>Secure Cloud Storage (Supabase)</li>
         <li>Priority Email Support</li>
       </ul>
       <button class="btn btn-primary" style="width:100%;padding:15px;font-size:16px" onclick="showAuth('register')">Get Started Free →</button>
@@ -408,8 +410,8 @@ label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bot
 
 <script>
 // ── CONFIG ──────────────────────────────────────
-const SUPABASE_URL = 'https://dgioyzuklczfojvhgjev.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRnaW95enVrbGN6Zm9qdmhnamV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyMzE5NjMsImV4cCI6MjA5NjgwNzk2M30.lAcL28uckrETdUAngs6J-DITl0vFBd_Tr-pSq641QVI';
+const SUPABASE_URL = 'https://yrbqphwujsidwhkowha.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlyYmJxcGh3dWpzaWR3aGtvd2hhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExNDAzMTEsImV4cCI6MjA5NjcxNjMxMX0.ca9d7CPWJYT3rMkGchfPMQQ5JVZULKznWPFv6vlpM6g';
 const STRIPE_URL = 'YOUR_STRIPE_CHECKOUT_LINK';
 
 const JOB_TYPES = {
@@ -418,25 +420,29 @@ const JOB_TYPES = {
   cleaning:   ['House Cleaning','Deep Cleaning','End of Tenancy','Carpet Cleaning','Office Clean']
 };
 
+// ── INIT SUPABASE (avoid global name collision) ──
 const isConfigured = SUPABASE_URL !== 'YOUR_SUPABASE_URL';
 const db = isConfigured ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 const demoMode = !db;
 
+// ── STATE ────────────────────────────────────────
 let currentUser = null, userProfile = null;
 let allCustomers = [], allJobs = [], allInvoices = [];
 
+// ── SCREENS ──────────────────────────────────────
 const SCREENS = ['loading-screen','landing','auth-page','paywall','app'];
-function show(id){ SCREENS.forEach(function(s){ document.getElementById(s).classList[s===id?'remove':'add']('hidden'); }); }
+function show(id){ SCREENS.forEach(s=>document.getElementById(s).classList[s===id?'remove':'add']('hidden')); }
 function showLanding(){ show('landing'); }
 function showAuth(tab){ show('auth-page'); switchTab(tab||'login'); }
 
-function toast(msg, type){
-  type = type || 'success';
+// ── TOAST ────────────────────────────────────────
+function toast(msg, type='success'){
   const t=document.getElementById('toast');
-  t.textContent=msg; t.className='toast show '+type;
-  setTimeout(function(){ t.classList.remove('show'); },3200);
+  t.textContent=msg; t.className=`toast show ${type}`;
+  setTimeout(()=>t.classList.remove('show'),3200);
 }
 
+// ── AUTH TABS ─────────────────────────────────────
 function switchTab(t){
   document.getElementById('form-login').classList.toggle('hidden',t!=='login');
   document.getElementById('form-register').classList.toggle('hidden',t==='login');
@@ -444,16 +450,33 @@ function switchTab(t){
   document.getElementById('tab-register').classList.toggle('active',t!=='login');
 }
 
+// ── DEMO DATA ─────────────────────────────────────
+function demoCusts(){ return [
+  {id:'c1',name:'Alice Johnson',phone:'555-0101',address:'12 Oak Lane'},
+  {id:'c2',name:'Bob Martinez', phone:'555-0102',address:'34 Pine Ave'},
+  {id:'c3',name:'Carol White',  phone:'555-0103',address:'56 Elm St'},
+];}
+function demoJobs(bt){ const t=JOB_TYPES[bt]||JOB_TYPES.plumbing; return [
+  {id:'j1',customer_id:'c1',type:t[0],date:'2025-04-10T09:00',amount:180,status:'Done'},
+  {id:'j2',customer_id:'c2',type:t[1],date:'2025-04-15T11:00',amount:250,status:'Scheduled'},
+  {id:'j3',customer_id:'c3',type:t[2],date:'2025-04-20T14:00',amount:320,status:'Pending'},
+  {id:'j4',customer_id:'c1',type:t[0],date:'2025-04-25T10:00',amount:150,status:'Done'},
+];}
+function demoInvs(){ return [
+  {id:'inv1',job_id:'j1',amount:180,status:'Paid'},
+  {id:'inv2',job_id:'j4',amount:150,status:'Unpaid'},
+];}
+
+// ── INIT ──────────────────────────────────────────
 async function init(){
   if(demoMode){
     userProfile={id:'demo',business_type:'plumbing',full_name:'Demo User'};
     currentUser={id:'demo',email:'demo@zerviq.app'};
-    allCustomers=[]; allJobs=[]; allInvoices=[];
+    allCustomers=demoCusts(); allJobs=demoJobs('plumbing'); allInvoices=demoInvs();
     setupSidebar(); show('landing'); return;
   }
   try{
-    const sess = await db.auth.getSession();
-    const session = sess.data.session;
+    const {data:{session}} = await db.auth.getSession();
     if(!session){ show('landing'); return; }
     currentUser=session.user;
     await loadProfile();
@@ -465,32 +488,50 @@ async function init(){
 }
 
 async function loadProfile(){
-  const res=await db.from('profiles').select('*').eq('id',currentUser.id).single();
-  userProfile=res.data || {id:currentUser.id,business_type:'plumbing',full_name:currentUser.email};
+  const {data}=await db.from('profiles').select('*').eq('id',currentUser.id).single();
+  userProfile=data||{id:currentUser.id,business_type:'plumbing',full_name:currentUser.email};
 }
 
 async function loadAllData(){
   const uid=currentUser.id;
-  const cr = await db.from('customers').select('*').eq('user_id',uid);
-  const jr = await db.from('jobs').select('*').eq('user_id',uid).order('date',{ascending:false});
-  const ir = await db.from('invoices').select('*');
+  const [cr,jr,ir]=await Promise.all([
+    db.from('customers').select('*').eq('user_id',uid),
+    db.from('jobs').select('*').eq('user_id',uid).order('date',{ascending:false}),
+    db.from('invoices').select('*'),
+  ]);
   allCustomers=cr.data||[]; allJobs=jr.data||[]; allInvoices=ir.data||[];
+  if(!allCustomers.length) await seedDemo();
+}
+
+async function seedDemo(){
+  const uid=currentUser.id; const t=userProfile.business_type;
+  const {data:nc}=await db.from('customers').insert(demoCusts().map(c=>({user_id:uid,name:c.name,phone:c.phone,address:c.address}))).select();
+  allCustomers=nc||[];
+  if(!allCustomers.length) return;
+  const jr=demoJobs(t);
+  const {data:nj}=await db.from('jobs').insert(jr.map((j,i)=>({user_id:uid,customer_id:allCustomers[i%allCustomers.length].id,type:j.type,date:j.date,amount:j.amount,status:j.status}))).select();
+  allJobs=nj||[];
+  const done=allJobs.filter(j=>j.status==='Done');
+  if(done.length){
+    const {data:ni}=await db.from('invoices').insert(done.map(j=>({job_id:j.id,amount:j.amount,status:'Unpaid'}))).select();
+    allInvoices=ni||[];
+  }
 }
 
 function setupSidebar(){
-  const name=(userProfile && userProfile.full_name) || 'User';
+  const name=userProfile?.full_name||'User';
   document.getElementById('sb-name').textContent=name;
-  document.getElementById('dash-greeting').textContent='Welcome, '+name.split(' ')[0]+' 👋';
+  document.getElementById('dash-greeting').textContent=`Welcome, ${name.split(' ')[0]} 👋`;
   const m={plumbing:'🔧 Plumbing',electrical:'⚡ Electrical',cleaning:'🧹 Cleaning'};
-  document.getElementById('sb-type').textContent=m[userProfile && userProfile.business_type]||'Service Pro';
+  document.getElementById('sb-type').textContent=m[userProfile?.business_type]||'Service Pro';
   const sel=document.getElementById('job-type'); sel.innerHTML='';
-  const types = JOB_TYPES[userProfile && userProfile.business_type]||JOB_TYPES.plumbing;
-  for(let i=0;i<types.length;i++){ sel.innerHTML += '<option>'+types[i]+'</option>'; }
+  (JOB_TYPES[userProfile?.business_type]||JOB_TYPES.plumbing).forEach(t=>sel.innerHTML+=`<option>${t}</option>`);
 }
 
+// ── NAVIGATION ────────────────────────────────────
 function navigate(page){
-  document.querySelectorAll('[data-page]').forEach(function(el){ el.classList.toggle('active',el.dataset.page===page); });
-  ['dashboard','jobs','customers','invoices'].forEach(function(p){ document.getElementById('page-'+p).classList.toggle('hidden',p!==page); });
+  document.querySelectorAll('[data-page]').forEach(el=>el.classList.toggle('active',el.dataset.page===page));
+  ['dashboard','jobs','customers','invoices'].forEach(p=>document.getElementById(`page-${p}`).classList.toggle('hidden',p!==page));
   closeSidebar();
   if(page==='dashboard') renderDashboard();
   if(page==='jobs'){ renderJobs(); populateCustDrop(); }
@@ -498,76 +539,40 @@ function navigate(page){
   if(page==='invoices') renderInvoices();
 }
 
+// ── DASHBOARD ─────────────────────────────────────
 function renderDashboard(){
   document.getElementById('m-jobs').textContent=allJobs.length;
   document.getElementById('m-customers').textContent=allCustomers.length;
-  let rev=0;
-  for(let i=0;i<allJobs.length;i++){ if(allJobs[i].status==='Done') rev+=Number(allJobs[i].amount); }
+  const rev=allJobs.filter(j=>j.status==='Done').reduce((s,j)=>s+Number(j.amount),0);
   document.getElementById('m-revenue').textContent='$'+rev.toLocaleString();
-  let unpaid=0;
-  for(let i=0;i<allInvoices.length;i++){ if(allInvoices[i].status==='Unpaid') unpaid++; }
-  document.getElementById('m-unpaid').textContent=unpaid;
-
+  document.getElementById('m-unpaid').textContent=allInvoices.filter(i=>i.status==='Unpaid').length;
   const tbody=document.getElementById('dash-jobs-body');
   const rows=allJobs.slice(0,6);
-  if(rows.length===0){
-    tbody.innerHTML = '<tr><td colspan="5"><div class="empty-state">'
-      + '<div class="icon">🚀</div>'
-      + '<div class="title">Welcome to Zerviq!</div>'
-      + '<div class="desc">Get started by adding your first customer, then create a job for them.</div>'
-      + '<button class="btn btn-primary btn-sm" onclick="navigate(\\'customers\\')">+ Add Your First Customer</button>'
-      + '</div></td></tr>';
-    return;
-  }
-  let html='';
-  for(let i=0;i<rows.length;i++){
-    const j=rows[i];
-    html += '<tr><td style="font-weight:600">'+cn(j.customer_id)+'</td><td>'+j.type+'</td><td>'+fd(j.date)+'</td><td>$'+Number(j.amount).toFixed(2)+'</td><td><span class="badge badge-'+j.status.toLowerCase()+'">'+j.status+'</span></td></tr>';
-  }
-  tbody.innerHTML=html;
+  tbody.innerHTML=rows.length
+    ? rows.map(j=>`<tr><td style="font-weight:600">${cn(j.customer_id)}</td><td>${j.type}</td><td>${fd(j.date)}</td><td>$${Number(j.amount).toFixed(2)}</td><td><span class="badge badge-${j.status.toLowerCase()}">${j.status}</span></td></tr>`).join('')
+    : `<tr><td colspan="5" style="text-align:center;color:var(--muted);padding:28px">No jobs yet. Go to Jobs to create your first one!</td></tr>`;
 }
 
+// ── JOBS ──────────────────────────────────────────
 function renderJobs(){
   const tbody=document.getElementById('jobs-body');
-  if(allJobs.length===0){
-    const sub = allCustomers.length
-      ? 'Click "+ New Job" above to create your first job.'
-      : 'Add a customer first, then create a job for them.';
-    const btn = allCustomers.length ? '' : '<button class="btn btn-primary btn-sm" onclick="navigate(\\'customers\\')">+ Add a Customer</button>';
-    tbody.innerHTML = '<tr><td colspan="6"><div class="empty-state">'
-      + '<div class="icon">📋</div>'
-      + '<div class="title">No jobs yet</div>'
-      + '<div class="desc">'+sub+'</div>'
-      + btn
-      + '</div></td></tr>';
-    return;
-  }
-  let html='';
-  for(let i=0;i<allJobs.length;i++){
-    const j=allJobs[i];
-    html += '<tr>'
-      + '<td style="font-weight:600">'+cn(j.customer_id)+'</td><td>'+j.type+'</td><td>'+fd(j.date)+'</td>'
-      + '<td>$'+Number(j.amount).toFixed(2)+'</td>'
-      + '<td><span class="badge badge-'+j.status.toLowerCase()+'">'+j.status+'</span></td>'
-      + '<td style="display:flex;gap:6px;flex-wrap:wrap">'
-      + (j.status!=='Done' ? '<button class="btn btn-success btn-sm" onclick="markDone(\\''+j.id+'\\')">✓ Done</button>' : '')
-      + '<button class="btn btn-danger btn-sm" onclick="deleteJob(\\''+j.id+'\\')">Delete</button>'
-      + '</td></tr>';
-  }
-  tbody.innerHTML=html;
+  tbody.innerHTML=allJobs.length
+    ? allJobs.map(j=>`<tr>
+        <td style="font-weight:600">${cn(j.customer_id)}</td><td>${j.type}</td><td>${fd(j.date)}</td>
+        <td>$${Number(j.amount).toFixed(2)}</td>
+        <td><span class="badge badge-${j.status.toLowerCase()}">${j.status}</span></td>
+        <td style="display:flex;gap:6px;flex-wrap:wrap">
+          ${j.status!=='Done'?`<button class="btn btn-success btn-sm" onclick="markDone('${j.id}')">✓ Done</button>`:''}
+          <button class="btn btn-danger btn-sm" onclick="deleteJob('${j.id}')">Delete</button>
+        </td></tr>`).join('')
+    : `<tr><td colspan="6" style="text-align:center;color:var(--muted);padding:28px">No jobs yet. Click "+ New Job" to get started!</td></tr>`;
 }
 
 function populateCustDrop(){
   const sel=document.getElementById('job-customer');
-  if(allCustomers.length===0){
-    sel.innerHTML='<option value="">No customers yet — add one first</option>';
-    return;
-  }
-  let html='';
-  for(let i=0;i<allCustomers.length;i++){
-    html += '<option value="'+allCustomers[i].id+'">'+allCustomers[i].name+'</option>';
-  }
-  sel.innerHTML=html;
+  sel.innerHTML=allCustomers.length
+    ? allCustomers.map(c=>`<option value="${c.id}">${c.name}</option>`).join('')
+    : '<option value="">No customers yet — add one first</option>';
 }
 
 async function createJob(){
@@ -578,76 +583,49 @@ async function createJob(){
   const status=document.getElementById('job-status').value;
   if(!custId||!type||!date||isNaN(amount)){setErr('job-err','Please fill all fields.');return;}
   if(demoMode){
-    const j={id:'j'+Date.now(),customer_id:custId,type:type,date:date,amount:amount,status:status};
+    const j={id:'j'+Date.now(),customer_id:custId,type,date,amount,status};
     allJobs.unshift(j);
-    if(status==='Done') allInvoices.unshift({id:'inv'+Date.now(),job_id:j.id,amount:amount,status:'Unpaid'});
+    if(status==='Done') allInvoices.unshift({id:'inv'+Date.now(),job_id:j.id,amount,status:'Unpaid'});
     closeModal('modal-job'); renderJobs(); toast('✓ Job created!'); return;
   }
-  const res=await db.from('jobs').insert([{user_id:currentUser.id,customer_id:custId,type:type,date:date,amount:amount,status:status}]).select().single();
-  if(res.error){setErr('job-err',res.error.message);return;}
-  allJobs.unshift(res.data);
-  if(status==='Done'){
-    const ires=await db.from('invoices').insert([{job_id:res.data.id,amount:amount,status:'Unpaid'}]).select().single();
-    if(ires.data) allInvoices.unshift(ires.data);
-  }
+  const {data,error}=await db.from('jobs').insert([{user_id:currentUser.id,customer_id:custId,type,date,amount,status}]).select().single();
+  if(error){setErr('job-err',error.message);return;}
+  allJobs.unshift(data);
+  if(status==='Done'){const {data:inv}=await db.from('invoices').insert([{job_id:data.id,amount,status:'Unpaid'}]).select().single();if(inv)allInvoices.unshift(inv);}
   closeModal('modal-job'); renderJobs(); toast('✓ Job created!');
 }
 
 async function markDone(id){
-  let job=null;
-  for(let i=0;i<allJobs.length;i++){ if(allJobs[i].id===id) job=allJobs[i]; }
-  if(!job) return;
+  const job=allJobs.find(j=>j.id===id); if(!job) return;
   if(demoMode){
     job.status='Done';
-    let exists=false;
-    for(let i=0;i<allInvoices.length;i++){ if(allInvoices[i].job_id===id) exists=true; }
-    if(!exists) allInvoices.unshift({id:'inv'+Date.now(),job_id:id,amount:job.amount,status:'Unpaid'});
+    if(!allInvoices.find(i=>i.job_id===id)) allInvoices.unshift({id:'inv'+Date.now(),job_id:id,amount:job.amount,status:'Unpaid'});
     renderJobs(); renderDashboard(); toast('✓ Job done! Invoice created.'); return;
   }
   await db.from('jobs').update({status:'Done'}).eq('id',id);
   job.status='Done';
-  let exists=false;
-  for(let i=0;i<allInvoices.length;i++){ if(allInvoices[i].job_id===id) exists=true; }
-  if(!exists){
-    const res=await db.from('invoices').insert([{job_id:id,amount:job.amount,status:'Unpaid'}]).select().single();
-    if(res.data) allInvoices.unshift(res.data);
+  if(!allInvoices.find(i=>i.job_id===id)){
+    const {data}=await db.from('invoices').insert([{job_id:id,amount:job.amount,status:'Unpaid'}]).select().single();
+    if(data) allInvoices.unshift(data);
   }
   renderJobs(); toast('✓ Job done! Invoice created.');
 }
 
 async function deleteJob(id){
   if(!confirm('Delete this job?')) return;
-  if(demoMode){
-    allJobs=allJobs.filter(function(j){return j.id!==id;});
-    allInvoices=allInvoices.filter(function(i){return i.job_id!==id;});
-    renderJobs();toast('Deleted.');return;
-  }
+  if(demoMode){allJobs=allJobs.filter(j=>j.id!==id);allInvoices=allInvoices.filter(i=>i.job_id!==id);renderJobs();toast('Deleted.');return;}
   await db.from('invoices').delete().eq('job_id',id);
   await db.from('jobs').delete().eq('id',id);
-  allJobs=allJobs.filter(function(j){return j.id!==id;});
-  allInvoices=allInvoices.filter(function(i){return i.job_id!==id;});
+  allJobs=allJobs.filter(j=>j.id!==id);allInvoices=allInvoices.filter(i=>i.job_id!==id);
   renderJobs(); toast('Deleted.');
 }
 
+// ── CUSTOMERS ─────────────────────────────────────
 function renderCustomers(){
   const tbody=document.getElementById('customers-body');
-  if(allCustomers.length===0){
-    tbody.innerHTML = '<tr><td colspan="4"><div class="empty-state">'
-      + '<div class="icon">👥</div>'
-      + '<div class="title">No customers yet</div>'
-      + '<div class="desc">Add your first customer to start creating jobs and invoices.</div>'
-      + '<button class="btn btn-primary btn-sm" onclick="openModal(\\'modal-customer\\')">+ Add Your First Customer</button>'
-      + '</div></td></tr>';
-    return;
-  }
-  let html='';
-  for(let i=0;i<allCustomers.length;i++){
-    const c=allCustomers[i];
-    let n=0;
-    for(let k=0;k<allJobs.length;k++){ if(allJobs[k].customer_id===c.id) n++; }
-    html += '<tr><td style="font-weight:600">'+c.name+'</td><td>'+(c.phone||'—')+'</td><td>'+(c.address||'—')+'</td><td><span class="badge badge-scheduled">'+n+' job'+(n!==1?'s':'')+'</span></td></tr>';
-  }
-  tbody.innerHTML=html;
+  tbody.innerHTML=allCustomers.length
+    ? allCustomers.map(c=>{const n=allJobs.filter(j=>j.customer_id===c.id).length;return`<tr><td style="font-weight:600">${c.name}</td><td>${c.phone||'—'}</td><td>${c.address||'—'}</td><td><span class="badge badge-scheduled">${n} job${n!==1?'s':''}</span></td></tr>`;}).join('')
+    : `<tr><td colspan="4" style="text-align:center;color:var(--muted);padding:28px">No customers yet. Click "+ Add Customer" to start!</td></tr>`;
 }
 
 async function addCustomer(){
@@ -656,68 +634,53 @@ async function addCustomer(){
   const address=document.getElementById('cust-address').value.trim();
   if(!name){setErr('cust-err','Name is required.');return;}
   if(demoMode){
-    allCustomers.unshift({id:'c'+Date.now(),name:name,phone:phone,address:address});
+    allCustomers.unshift({id:'c'+Date.now(),name,phone,address});
     closeModal('modal-customer'); renderCustomers(); toast('✓ Customer added!'); return;
   }
-  const res=await db.from('customers').insert([{user_id:currentUser.id,name:name,phone:phone,address:address}]).select().single();
-  if(res.error){setErr('cust-err',res.error.message);return;}
-  allCustomers.unshift(res.data);
+  const {data,error}=await db.from('customers').insert([{user_id:currentUser.id,name,phone,address}]).select().single();
+  if(error){setErr('cust-err',error.message);return;}
+  allCustomers.unshift(data);
   closeModal('modal-customer'); renderCustomers(); toast('✓ Customer added!');
 }
 
+// ── INVOICES ──────────────────────────────────────
 function renderInvoices(){
   const tbody=document.getElementById('invoices-body');
-  if(allInvoices.length===0){
-    tbody.innerHTML = '<tr><td colspan="5"><div class="empty-state">'
-      + '<div class="icon">🧾</div>'
-      + '<div class="title">No invoices yet</div>'
-      + '<div class="desc">Invoices are created automatically when you mark a job as "Done".</div>'
-      + '</div></td></tr>';
-    return;
-  }
-  let html='';
-  for(let i=0;i<allInvoices.length;i++){
-    const inv=allInvoices[i];
-    let job=null;
-    for(let k=0;k<allJobs.length;k++){ if(allJobs[k].id===inv.job_id) job=allJobs[k]; }
-    const jobLabel = job ? (cn(job.customer_id)+' — '+job.type) : 'Unknown';
-    const action = inv.status==='Unpaid'
-      ? '<button class="btn btn-success btn-sm" onclick="markPaid(\\''+inv.id+'\\')">Mark Paid</button>'
-      : '<span style="color:var(--muted);font-size:13px">✓ Paid</span>';
-    html += '<tr>'
-      + '<td style="font-weight:700;color:var(--accent)">#'+String(i+1).padStart(4,'0')+'</td>'
-      + '<td>'+jobLabel+'</td>'
-      + '<td style="font-weight:600">$'+Number(inv.amount).toFixed(2)+'</td>'
-      + '<td><span class="badge badge-'+inv.status.toLowerCase()+'">'+inv.status+'</span></td>'
-      + '<td>'+action+'</td>'
-      + '</tr>';
-  }
-  tbody.innerHTML=html;
+  tbody.innerHTML=allInvoices.length
+    ? allInvoices.map((inv,i)=>{
+        const job=allJobs.find(j=>j.id===inv.job_id);
+        return`<tr>
+          <td style="font-weight:700;color:var(--accent)">#${String(i+1).padStart(4,'0')}</td>
+          <td>${job?cn(job.customer_id)+' — '+job.type:'Unknown'}</td>
+          <td style="font-weight:600">$${Number(inv.amount).toFixed(2)}</td>
+          <td><span class="badge badge-${inv.status.toLowerCase()}">${inv.status}</span></td>
+          <td>${inv.status==='Unpaid'?`<button class="btn btn-success btn-sm" onclick="markPaid('${inv.id}')">Mark Paid</button>`:'<span style="color:var(--muted);font-size:13px">✓ Paid</span>'}</td>
+        </tr>`;}).join('')
+    : `<tr><td colspan="5" style="text-align:center;color:var(--muted);padding:28px">No invoices yet. Mark a job as Done to generate one.</td></tr>`;
 }
 
 async function markPaid(id){
-  let inv=null;
-  for(let i=0;i<allInvoices.length;i++){ if(allInvoices[i].id===id) inv=allInvoices[i]; }
-  if(!inv) return;
+  const inv=allInvoices.find(i=>i.id===id); if(!inv) return;
   if(demoMode){inv.status='Paid';renderInvoices();renderDashboard();toast('✓ Invoice marked paid!');return;}
   await db.from('invoices').update({status:'Paid'}).eq('id',id);
   inv.status='Paid'; renderInvoices(); toast('✓ Invoice marked paid!');
 }
 
+// ── AUTH ──────────────────────────────────────────
 async function doLogin(){
   if(demoMode){
     currentUser={id:'demo',email:'demo@zerviq.app',created_at:new Date().toISOString()};
     userProfile={id:'demo',business_type:'plumbing',full_name:'Demo User'};
-    allCustomers=[];allJobs=[];allInvoices=[];
+    allCustomers=demoCusts();allJobs=demoJobs('plumbing');allInvoices=demoInvs();
     setupSidebar();show('app');navigate('dashboard');toast('Welcome to Zerviq! (demo mode)');return;
   }
   const email=document.getElementById('login-email').value.trim();
   const pass=document.getElementById('login-pass').value;
   hideEl('login-err');hideEl('login-success');
   if(!email||!pass){setErr('login-err','Enter email and password.');return;}
-  const res=await db.auth.signInWithPassword({email:email,password:pass});
-  if(res.error){setErr('login-err',res.error.message);return;}
-  currentUser=res.data.user;
+  const {data,error}=await db.auth.signInWithPassword({email,password:pass});
+  if(error){setErr('login-err',error.message);return;}
+  currentUser=data.user;
   await loadProfile();
   const created=new Date(currentUser.created_at);
   if((Date.now()-created)/(864e5)>30){show('paywall');return;}
@@ -733,9 +696,9 @@ async function doRegister(){
   hideEl('reg-err');hideEl('reg-success');
   if(!name||!email||!pass){setErr('reg-err','All fields required.');return;}
   if(pass.length<6){setErr('reg-err','Password min 6 characters.');return;}
-  const res=await db.auth.signUp({email:email,password:pass,options:{data:{full_name:name,business_type:btype}}});
-  if(res.error){setErr('reg-err',res.error.message);return;}
-  if(res.data.user) await db.from('profiles').upsert({id:res.data.user.id,full_name:name,business_type:btype});
+  const {data,error}=await db.auth.signUp({email,password:pass,options:{data:{full_name:name,business_type:btype}}});
+  if(error){setErr('reg-err',error.message);return;}
+  if(data.user) await db.from('profiles').upsert({id:data.user.id,full_name:name,business_type:btype});
   setSuccess('reg-success','🎉 Account created! Check your email to confirm, then login.');
 }
 
@@ -746,34 +709,29 @@ async function doLogout(){
 }
 function goToStripe(){ window.open(STRIPE_URL,'_blank'); }
 
+// ── MODALS ────────────────────────────────────────
 function openModal(id){
   document.getElementById(id).classList.remove('hidden');
   if(id==='modal-job'){hideEl('job-err');document.getElementById('job-amount').value='';}
-  if(id==='modal-customer'){hideEl('cust-err');['cust-name','cust-phone','cust-address'].forEach(function(f){document.getElementById(f).value='';});}
+  if(id==='modal-customer'){hideEl('cust-err');['cust-name','cust-phone','cust-address'].forEach(f=>document.getElementById(f).value='');}
 }
 function closeModal(id){ document.getElementById(id).classList.add('hidden'); }
-document.querySelectorAll('.modal-overlay').forEach(function(o){
-  o.addEventListener('click',function(e){ if(e.target===o) o.classList.add('hidden'); });
-});
+document.querySelectorAll('.modal-overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)o.classList.add('hidden');}));
 
+// ── SIDEBAR ───────────────────────────────────────
 function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('sidebar-overlay').classList.toggle('open');}
 function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('sidebar-overlay').classList.remove('open');}
 
-function cn(id){
-  for(let i=0;i<allCustomers.length;i++){ if(allCustomers[i].id===id) return allCustomers[i].name; }
-  return 'Unknown';
-}
-function fd(d){
-  if(!d) return '—';
-  try{ return new Date(d).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}); }
-  catch(e){ return d; }
-}
+// ── HELPERS ───────────────────────────────────────
+function cn(id){ return allCustomers.find(c=>c.id===id)?.name||'Unknown'; }
+function fd(d){ if(!d)return'—';try{return new Date(d).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});}catch{return d;} }
 function setErr(id,msg){const el=document.getElementById(id);el.textContent=msg;el.classList.remove('hidden');}
 function setSuccess(id,msg){const el=document.getElementById(id);el.textContent=msg;el.classList.remove('hidden');}
 function hideEl(id){document.getElementById(id).classList.add('hidden');}
 
-window.addEventListener('load',async function(){
-  await new Promise(function(r){ setTimeout(r,800); });
+// ── BOOT ──────────────────────────────────────────
+window.addEventListener('load',async()=>{
+  await new Promise(r=>setTimeout(r,800));
   await init();
 });
 </script>
