@@ -93,6 +93,16 @@ td{padding:12px 14px;font-size:14px;border-bottom:1px solid var(--border)}
 .spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto}
 @keyframes spin{to{transform:rotate(360deg)}}
 .loading-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;flex-direction:column;gap:18px}
+.tour-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:300;display:flex;align-items:center;justify-content:center;padding:20px}
+.tour-card{background:var(--bg2);border:1px solid var(--accent);border-radius:16px;padding:32px;max-width:440px;width:100%;box-shadow:0 0 60px rgba(0,194,255,.15)}
+.tour-step-icon{font-size:40px;margin-bottom:16px}
+.tour-card h3{font-size:20px;font-weight:900;margin-bottom:10px}
+.tour-card p{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:24px}
+.tour-dots{display:flex;gap:6px;margin-bottom:20px}
+.tour-dot{width:8px;height:8px;border-radius:50%;background:var(--border)}
+.tour-dot.active{background:var(--accent);width:20px;border-radius:4px}
+.tour-footer{display:flex;justify-content:space-between;align-items:center}
+.tour-skip{color:var(--muted);font-size:13px;cursor:pointer;background:none;border:none}
 @media(max-width:768px){
   .sidebar{transform:translateX(-100%);transition:transform .3s;z-index:50}
   .sidebar.open{transform:translateX(0)}
@@ -308,6 +318,19 @@ td{padding:12px 14px;font-size:14px;border-bottom:1px solid var(--border)}
 
 <div class="toast" id="toast"></div>
 
+<div class="tour-overlay hidden" id="tour-overlay">
+  <div class="tour-card">
+    <div class="tour-step-icon" id="tour-icon">👋</div>
+    <h3 id="tour-title">Welcome to Zerviq!</h3>
+    <p id="tour-desc">Let's take a quick 30-second tour so you know exactly how to manage your business here.</p>
+    <div class="tour-dots" id="tour-dots"></div>
+    <div class="tour-footer">
+      <button class="tour-skip" onclick="skipTour()">Skip tour</button>
+      <button class="btn btn-primary btn-sm" id="tour-next" onclick="nextTourStep()">Next</button>
+    </div>
+  </div>
+</div>
+
 <script>
 var SUPABASE_URL = "https://dgioyzuklczfojvhgjev.supabase.co";
 var SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRnaW95enVrbGN6Zm9qdmhnamV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyMzE5NjMsImV4cCI6MjA5NjgwNzk2M30.lAcL28uckrETdUAngs6J-DITl0vFBd_Tr-pSq641QVI";
@@ -366,6 +389,7 @@ function init() {
         setupSidebar();
         show("app");
         navigate("dashboard");
+        if (!userProfile.has_seen_tour) { startTour(); }
       });
     });
   }).catch(function (e) {
@@ -376,7 +400,7 @@ function init() {
 
 function loadProfile() {
   return db.from("profiles").select("*").eq("id", currentUser.id).single().then(function (res) {
-    userProfile = res.data || { id: currentUser.id, business_type: "plumbing", full_name: currentUser.email };
+    userProfile = res.data || { id: currentUser.id, business_type: "plumbing", full_name: currentUser.email, has_seen_tour: false };
   });
 }
 
@@ -703,6 +727,7 @@ function doLogin() {
         setupSidebar();
         show("app");
         navigate("dashboard");
+        if (!userProfile.has_seen_tour) { startTour(); }
       });
     });
   });
@@ -782,6 +807,55 @@ function setSuccess(id, msg) {
   el.classList.remove("hidden");
 }
 function hideEl(id) { document.getElementById(id).classList.add("hidden"); }
+
+// ── ONBOARDING TOUR ────────────────────────────────
+var TOUR_STEPS = [
+  { icon: "👋", title: "Welcome to Zerviq!", desc: "This is your business command center. Let's take a quick tour so you know exactly how everything works." },
+  { icon: "👥", title: "Start with Customers", desc: "Head to the Customers tab and add your first client - just a name, phone, and address. This takes 10 seconds." },
+  { icon: "📋", title: "Create Jobs", desc: "Go to Jobs and click \"New Job\" to schedule work for a customer. Pick the job type, date, and price." },
+  { icon: "🧾", title: "Invoices are automatic", desc: "When you mark a job as \"Done\", Zerviq automatically creates an invoice for you. Just mark it Paid once the customer pays." },
+  { icon: "📊", title: "Track everything on Dashboard", desc: "Your Dashboard always shows total jobs, customers, revenue, and unpaid invoices at a glance. You're all set - let's get started!" }
+];
+var tourStep = 0;
+
+function startTour() {
+  tourStep = 0;
+  renderTourStep();
+  document.getElementById("tour-overlay").classList.remove("hidden");
+}
+
+function renderTourStep() {
+  var step = TOUR_STEPS[tourStep];
+  document.getElementById("tour-icon").textContent = step.icon;
+  document.getElementById("tour-title").textContent = step.title;
+  document.getElementById("tour-desc").textContent = step.desc;
+  var dotsEl = document.getElementById("tour-dots");
+  dotsEl.innerHTML = "";
+  for (var i = 0; i < TOUR_STEPS.length; i++) {
+    var dot = document.createElement("div");
+    dot.className = "tour-dot" + (i === tourStep ? " active" : "");
+    dotsEl.appendChild(dot);
+  }
+  var nextBtn = document.getElementById("tour-next");
+  nextBtn.textContent = (tourStep === TOUR_STEPS.length - 1) ? "Get Started" : "Next";
+}
+
+function nextTourStep() {
+  tourStep++;
+  if (tourStep >= TOUR_STEPS.length) { finishTour(); return; }
+  renderTourStep();
+}
+
+function skipTour() { finishTour(); }
+
+function finishTour() {
+  document.getElementById("tour-overlay").classList.add("hidden");
+  try {
+    if (currentUser && currentUser.id) {
+      db.from("profiles").update({ has_seen_tour: true }).eq("id", currentUser.id).then(function(){});
+    }
+  } catch (e) {}
+}
 
 window.addEventListener("load", function () {
   setTimeout(init, 500);
