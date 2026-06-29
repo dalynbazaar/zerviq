@@ -654,15 +654,20 @@ function switchTab(t) {
   document.getElementById("tab-register").classList.toggle("active", t !== "login");
 }
 
+function checkAccess() {
+  var created = new Date(currentUser.created_at);
+  var daysOld = (Date.now() - created.getTime()) / 86400000;
+  var isSubscribed = userProfile && userProfile.is_subscribed;
+  return !(daysOld > 30 && !isSubscribed);
+}
+
 function init() {
   db.auth.getSession().then(function (res) {
     var session = res.data.session;
     if (!session) { show("landing"); return; }
     currentUser = session.user;
     loadProfile().then(function () {
-      var created = new Date(currentUser.created_at);
-      var daysOld = (Date.now() - created.getTime()) / 86400000;
-      if (daysOld > 30) { show("paywall"); return; }
+      if (!checkAccess()) { show("paywall"); return; }
       loadAllData().then(function () {
         setupSidebar();
         show("app");
@@ -676,7 +681,13 @@ function init() {
   });
 }
 
-function loadProfile() {
+function checkAccess() {
+  var created = new Date(currentUser.created_at);
+  var daysOld = (Date.now() - created.getTime()) / 86400000;
+  var isSubscribed = userProfile && userProfile.is_subscribed;
+  if (daysOld > 30 && !isSubscribed) { show("paywall"); return false; }
+  return true;
+}
   return db.from("profiles").select("*").eq("id", currentUser.id).single().then(function (res) {
     userProfile = res.data || { id: currentUser.id, business_type: "plumbing", full_name: currentUser.email, has_seen_tour: false };
   });
@@ -1170,9 +1181,7 @@ function doLogin() {
     if (res.error) { setErr("login-err", res.error.message); return; }
     currentUser = res.data.user;
     loadProfile().then(function () {
-      var created = new Date(currentUser.created_at);
-      var daysOld = (Date.now() - created.getTime()) / 86400000;
-      if (daysOld > 30) { show("paywall"); return; }
+      if (!checkAccess()) { show("paywall"); return; }
       loadAllData().then(function () {
         setupSidebar();
         show("app");
