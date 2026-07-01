@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <meta name="theme-color" content="#0a0e1a"/>
-<meta name="description" content="Zerviq — Manage your service business. Jobs, customers, invoices and more."/>
+<meta name="mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <meta name="apple-mobile-web-app-title" content="Zerviq"/>
@@ -37,77 +37,83 @@ label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bot
 .toast.show{transform:translateY(0);opacity:1}
 .toast.success{border-color:var(--green);color:var(--green)}
 .toast.error{border-color:var(--red);color:var(--red)}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 60px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:rgba(10,14,26,.85);backdrop-filter:blur(12px)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 60px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:rgba(10,14,26,.9)}
 .logo{font-size:24px;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero{position:relative;text-align:center;padding:140px 40px 120px;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(circle,rgba(0,194,255,.18),transparent 60%);pointer-events:none;animation:pulse 6s ease-in-out infinite}
-.hero::after{content:'';position:absolute;top:100px;right:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(124,58,237,.15),transparent 65%);pointer-events:none;animation:pulse 8s ease-in-out infinite reverse}
-@keyframes pulse{0%,100%{opacity:.6;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.08)}}
-.hero-badge{position:relative;display:inline-flex;align-items:center;gap:8px;background:rgba(0,194,255,.08);border:1px solid rgba(0,194,255,.3);color:var(--accent);padding:8px 18px;border-radius:30px;font-size:13px;font-weight:600;margin-bottom:28px;animation:fadeUp .6s ease both}
-.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
-.hero h1{position:relative;font-size:clamp(40px,7vw,72px);font-weight:900;line-height:1.08;margin-bottom:24px;letter-spacing:-1px;animation:fadeUp .6s ease .1s both}
+.hero{position:relative;text-align:center;padding:120px 40px 100px;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(circle,rgba(0,194,255,.16),transparent 60%);pointer-events:none}
+.hero::after{content:'';position:absolute;top:100px;right:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(124,58,237,.13),transparent 65%);pointer-events:none}
+.hero-badge{position:relative;display:inline-flex;align-items:center;gap:8px;background:rgba(0,194,255,.08);border:1px solid rgba(0,194,255,.3);color:var(--accent);padding:8px 18px;border-radius:30px;font-size:13px;font-weight:600;margin-bottom:24px}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
+.hero h1{position:relative;font-size:clamp(38px,6.5vw,68px);font-weight:900;line-height:1.08;margin-bottom:22px;letter-spacing:-1px}
 .hero h1 .grad{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero p{position:relative;font-size:19px;color:var(--muted);max-width:560px;margin:0 auto 40px;line-height:1.7;animation:fadeUp .6s ease .2s both}
-.hero-btns{position:relative;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:fadeUp .6s ease .3s both}
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-.hero-trust{position:relative;display:flex;gap:36px;justify-content:center;margin-top:56px;flex-wrap:wrap;animation:fadeUp .6s ease .4s both}
-.hero-trust-item{display:flex;flex-direction:column;align-items:center;gap:4px}
-.hero-trust-num{font-size:26px;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{position:relative;font-size:18px;color:var(--muted);max-width:560px;margin:0 auto 36px;line-height:1.7}
+.hero-btns{position:relative;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero-trust{position:relative;display:flex;gap:36px;justify-content:center;margin-top:52px;flex-wrap:wrap}
+.hero-trust-item{text-align:center}
+.hero-trust-num{font-size:24px;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .hero-trust-label{font-size:12px;color:var(--muted)}
-.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 0 0 rgba(0,194,255,0);transition:box-shadow .3s,transform .2s}
-.btn-primary:hover{box-shadow:0 6px 28px rgba(0,194,255,.35);transform:translateY(-2px)}
-.btn-outline{transition:border-color .2s,transform .2s}
-.btn-outline:hover{border-color:var(--accent);transform:translateY(-2px)}
-.features{padding:70px 60px 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1200px;margin:0 auto}
-.feat-card{position:relative;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s}
-.feat-card:hover{transform:translateY(-5px);border-color:rgba(0,194,255,.35);box-shadow:0 10px 30px rgba(0,0,0,.4)}
-.feat-card .feat-icon{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,rgba(0,194,255,.18),rgba(124,58,237,.18));display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px}
-.feat-card h3{font-size:16px;font-weight:800;margin-bottom:8px}
 .section-label{text-align:center;color:var(--accent);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
-.section-title{text-align:center;font-size:34px;font-weight:900;margin-bottom:50px}
-.how-it-works{padding:70px 40px;max-width:1000px;margin:0 auto}
+.section-title{text-align:center;font-size:32px;font-weight:900;margin-bottom:40px}
+.features{padding:60px 60px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1200px;margin:0 auto}
+.feat-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px}
+.feat-card h3{font-size:16px;font-weight:800;margin-bottom:8px}
+.how-it-works{padding:60px 40px;max-width:1000px;margin:0 auto}
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
-.step{text-align:center;position:relative}
-.step-num{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;margin:0 auto 16px;color:#fff}
+.step{text-align:center}
+.step-num{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;margin:0 auto 14px;color:#fff}
 .step h4{font-size:15px;font-weight:800;margin-bottom:6px}
 .step p{font-size:13px;color:var(--muted);line-height:1.5}
-.testimonial-section{padding:70px 40px;background:var(--bg2)}
+.review-spotlight{padding:70px 40px;max-width:1100px;margin:0 auto}
+.review-spotlight-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center}
+.review-spotlight-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);color:var(--green);padding:6px 16px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:16px}
+.review-spotlight h2{font-size:30px;font-weight:900;margin-bottom:14px;line-height:1.25}
+.review-spotlight p{color:var(--muted);font-size:14px;line-height:1.7;margin-bottom:20px}
+.review-spotlight-points{list-style:none}
+.review-spotlight-points li{display:flex;gap:12px;padding:9px 0;font-size:14px}
+.review-spotlight-points li .num{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0}
+.review-demo{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px}
+.review-demo-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.review-demo-check{width:30px;height:30px;border-radius:50%;background:rgba(34,197,94,.15);display:flex;align-items:center;justify-content:center;font-size:14px}
+.review-demo-bubble{background:var(--bg3);border-radius:10px;padding:14px;font-size:13px;line-height:1.6}
+.review-demo-stars{margin-top:14px;text-align:center;color:var(--yellow);font-size:18px;letter-spacing:3px}
+.testimonial-section{padding:60px 40px;background:var(--bg2)}
 .testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:1100px;margin:0 auto}
-.testimonial-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px}
-.testimonial-stars{color:var(--yellow);font-size:14px;margin-bottom:12px;letter-spacing:2px}
-.testimonial-text{font-size:14px;color:var(--text);line-height:1.6;margin-bottom:18px}
+.testimonial-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px}
+.testimonial-stars{color:var(--yellow);font-size:14px;margin-bottom:10px}
+.testimonial-text{font-size:14px;line-height:1.6;margin-bottom:16px}
 .testimonial-author{display:flex;align-items:center;gap:10px}
-.testimonial-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:#fff}
+.testimonial-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#fff}
 .testimonial-name{font-size:13px;font-weight:700}
 .testimonial-role{font-size:12px;color:var(--muted)}
-.pricing{padding:80px 40px;text-align:center}
-.price-card{position:relative;background:var(--card);border:1.5px solid var(--accent);border-radius:18px;padding:44px;max-width:440px;margin:0 auto;box-shadow:0 0 50px rgba(0,194,255,.1)}
-.price-glow-badge{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:12px;font-weight:800;padding:5px 16px;border-radius:20px;margin-bottom:18px}
-.price-amount{font-size:58px;font-weight:900;letter-spacing:-2px}
-.price-features{list-style:none;text-align:left;margin:26px 0}
-.price-features li{padding:9px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text);display:flex;align-items:center;gap:10px}
-.price-features li::before{content:'✓';color:var(--green);font-weight:900}
-.final-cta{padding:90px 40px;text-align:center;position:relative;overflow:hidden}
-.final-cta::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:700px;height:400px;background:radial-gradient(ellipse,rgba(0,194,255,.12),transparent 70%);pointer-events:none}
-.final-cta h2{position:relative;font-size:36px;font-weight:900;margin-bottom:16px}
-.final-cta p{position:relative;color:var(--muted);margin-bottom:32px;font-size:16px}
-.landing-footer{text-align:center;padding:36px;color:var(--muted);font-size:13px;border-top:1px solid var(--border)}
-.review-spotlight{padding:80px 40px;max-width:1100px;margin:0 auto}
-.review-spotlight-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center}
-.review-spotlight-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);color:var(--green);padding:6px 16px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:18px}
-.review-spotlight h2{font-size:32px;font-weight:900;margin-bottom:16px;line-height:1.2}
-.review-spotlight p{color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:22px}
-.review-spotlight-points{list-style:none}
-.review-spotlight-points li{display:flex;gap:12px;padding:10px 0;font-size:14px;color:var(--text)}
-.review-spotlight-points li .num{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;flex-shrink:0}
-.review-demo{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px}
-.review-demo-header{display:flex;align-items:center;gap:10px;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--border)}
-.review-demo-check{width:32px;height:32px;border-radius:50%;background:rgba(34,197,94,.15);display:flex;align-items:center;justify-content:center;font-size:16px}
-.review-demo-bubble{background:var(--bg3);border-radius:12px;padding:16px;font-size:13px;line-height:1.6;color:var(--text);position:relative}
-.review-demo-bubble::after{content:'';position:absolute;bottom:-8px;left:24px;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid var(--bg3)}
-.review-demo-stars{margin-top:16px;text-align:center;color:var(--yellow);font-size:20px;letter-spacing:4px}
+.smart-section{padding:60px 40px;background:var(--bg2)}
+.smart-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1100px;margin:0 auto}
+.smart-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px}
+.smart-tag{display:inline-block;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;margin-bottom:14px}
+.smart-tag.green{background:rgba(34,197,94,.12);color:var(--green)}
+.smart-tag.blue{background:rgba(0,194,255,.1);color:var(--accent)}
+.smart-tag.yellow{background:rgba(245,158,11,.1);color:var(--yellow)}
+.smart-tag.purple{background:rgba(124,58,237,.1);color:#a78bfa}
+.smart-card h3{font-size:18px;font-weight:900;margin-bottom:8px}
+.smart-card p{color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:16px}
+.smart-mock{background:var(--bg3);border-radius:10px;padding:12px 14px;font-size:12px}
+.smart-mock-row{padding:6px 0;border-bottom:1px solid var(--border)}
+.smart-mock-row:last-child{border-bottom:none}
+.smart-mock-title{font-weight:700;margin-bottom:2px}
+.smart-mock-desc{color:var(--muted);font-size:11px}
+.pricing{padding:70px 40px;text-align:center}
+.price-card{background:var(--card);border:1.5px solid var(--accent);border-radius:18px;padding:40px;max-width:440px;margin:0 auto}
+.price-badge{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:12px;font-weight:800;padding:5px 16px;border-radius:20px;margin-bottom:16px}
+.price-amount{font-size:54px;font-weight:900}
+.price-features{list-style:none;text-align:left;margin:22px 0}
+.price-features li{padding:8px 0;border-bottom:1px solid var(--border);font-size:14px;display:flex;gap:10px}
+.price-features li::before{content:'✓';color:var(--green);font-weight:700}
+.final-cta{padding:80px 40px;text-align:center}
+.final-cta h2{font-size:32px;font-weight:900;margin-bottom:14px}
+.final-cta p{color:var(--muted);margin-bottom:28px}
+.landing-footer{text-align:center;padding:32px;color:var(--muted);font-size:13px;border-top:1px solid var(--border)}
 @media(max-width:768px){
-  .review-spotlight-grid{grid-template-columns:1fr;gap:30px}
+  .review-spotlight-grid{grid-template-columns:1fr}
+  .smart-grid{grid-template-columns:1fr}
 }
 #auth-page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px}
 .auth-box{width:100%;max-width:440px}
@@ -145,14 +151,13 @@ td{padding:12px 14px;font-size:14px;border-bottom:1px solid var(--border)}
 .empty-state{text-align:center;color:var(--muted);padding:40px 20px}
 .empty-state .icon{font-size:36px;margin-bottom:10px}
 .empty-state .title{font-weight:700;color:var(--text);margin-bottom:6px;font-size:16px}
-.insight-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:12px;display:flex;gap:14px;align-items:flex-start}
+.insight-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start}
 .insight-card.warn{border-color:rgba(245,158,11,.4);background:rgba(245,158,11,.05)}
 .insight-card.info{border-color:rgba(0,194,255,.35);background:rgba(0,194,255,.04)}
-.insight-icon{font-size:22px;flex-shrink:0}
-.insight-text{flex:1}
+.insight-icon{font-size:20px;flex-shrink:0}
 .insight-title{font-weight:700;font-size:14px;margin-bottom:4px}
 .insight-desc{font-size:13px;color:var(--muted);line-height:1.5}
-.insight-action{margin-top:10px}
+.insight-action{margin-top:8px}
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px}
 .modal{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:28px;width:100%;max-width:480px;max-height:90vh;overflow-y:auto}
 .modal-header{display:flex;justify-content:space-between;margin-bottom:20px}
@@ -167,21 +172,17 @@ td{padding:12px 14px;font-size:14px;border-bottom:1px solid var(--border)}
 .spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto}
 @keyframes spin{to{transform:rotate(360deg)}}
 .loading-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;flex-direction:column;gap:18px}
-.tour-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:300;display:flex;align-items:center;justify-content:center;padding:20px}
-.tour-card{background:var(--bg2);border:1px solid var(--accent);border-radius:16px;padding:32px;max-width:440px;width:100%;box-shadow:0 0 60px rgba(0,194,255,.15)}
-.tour-step-icon{font-size:40px;margin-bottom:16px}
-.tour-card h3{font-size:20px;font-weight:900;margin-bottom:10px}
-.tour-card p{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:24px}
+.tour-overlay,.review-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:300;display:flex;align-items:center;justify-content:center;padding:20px}
+.tour-card,.review-card{background:var(--bg2);border:1px solid var(--accent);border-radius:16px;padding:32px;max-width:440px;width:100%}
+.review-card{text-align:center}
+.tour-step-icon,.review-icon{font-size:40px;margin-bottom:16px}
+.tour-card h3,.review-card h3{font-size:20px;font-weight:900;margin-bottom:10px}
+.tour-card p,.review-card p{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:24px}
 .tour-dots{display:flex;gap:6px;margin-bottom:20px}
 .tour-dot{width:8px;height:8px;border-radius:50%;background:var(--border)}
 .tour-dot.active{background:var(--accent);width:20px;border-radius:4px}
 .tour-footer{display:flex;justify-content:space-between;align-items:center}
 .tour-skip{color:var(--muted);font-size:13px;cursor:pointer;background:none;border:none}
-.review-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:300;display:flex;align-items:center;justify-content:center;padding:20px}
-.review-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:32px;max-width:420px;width:100%;text-align:center}
-.review-icon{font-size:42px;margin-bottom:14px}
-.review-card h3{font-size:19px;font-weight:900;margin-bottom:8px}
-.review-card p{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:24px}
 .review-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 .review-link-row{display:flex;gap:8px;margin-top:18px;align-items:center}
 .review-link-row input{flex:1;font-size:12px}
@@ -211,6 +212,7 @@ td{padding:12px 14px;font-size:14px;border-bottom:1px solid var(--border)}
       <button class="btn btn-primary btn-sm" onclick="showAuth('register')">Start Free Trial</button>
     </div>
   </nav>
+
   <div class="hero">
     <div class="hero-badge"><span class="dot"></span> Trusted by service businesses worldwide</div>
     <h1>Your Service Business,<br><span class="grad">Fully in Control</span></h1>
@@ -230,17 +232,17 @@ td{padding:12px 14px;font-size:14px;border-bottom:1px solid var(--border)}
   <div class="section-label">Everything you need</div>
   <div class="section-title">Run your business from one place</div>
   <div class="features">
-    <div class="feat-card"><div class="feat-icon">📋</div><h3>Job Management</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Create, schedule, and track jobs with one-click status updates.</p></div>
-    <div class="feat-card"><div class="feat-icon">👥</div><h3>Customer Database</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Store customer info and view full job history per client.</p></div>
-    <div class="feat-card"><div class="feat-icon">🧾</div><h3>Auto Invoicing</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Invoices generate automatically the moment a job is marked Done.</p></div>
-    <div class="feat-card"><div class="feat-icon">📊</div><h3>Revenue Dashboard</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">See total jobs, customers, and revenue at a glance.</p></div>
-    <div class="feat-card"><div class="feat-icon">🔧</div><h3>Multi-Trade Support</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Plumbing, electrical, and cleaning each get tailored job types.</p></div>
-    <div class="feat-card"><div class="feat-icon">📱</div><h3>Works Everywhere</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Fully responsive so you can manage jobs from the field.</p></div>
+    <div class="feat-card"><h3>📋 Job Management</h3><p style="color:var(--muted);font-size:14px">Create, schedule, and track jobs with one-click status updates.</p></div>
+    <div class="feat-card"><h3>👥 Customer Database</h3><p style="color:var(--muted);font-size:14px">Store customer info and view full job history per client.</p></div>
+    <div class="feat-card"><h3>🧾 Auto Invoicing</h3><p style="color:var(--muted);font-size:14px">Invoices generate automatically the moment a job is marked Done.</p></div>
+    <div class="feat-card"><h3>📊 Revenue Dashboard</h3><p style="color:var(--muted);font-size:14px">See total jobs, customers, and revenue at a glance.</p></div>
+    <div class="feat-card"><h3>🔧 Multi-Trade Support</h3><p style="color:var(--muted);font-size:14px">Plumbing, electrical, and cleaning each get tailored job types.</p></div>
+    <div class="feat-card"><h3>📱 Works Everywhere</h3><p style="color:var(--muted);font-size:14px">Fully responsive so you can manage jobs from the field.</p></div>
   </div>
 
   <div class="how-it-works">
     <div class="section-label">Get started in minutes</div>
-    <div class="section-title" style="margin-bottom:40px">How Zerviq works</div>
+    <div class="section-title">How Zerviq works</div>
     <div class="steps">
       <div class="step"><div class="step-num">1</div><h4>Create your account</h4><p>Pick your trade and sign up in under a minute.</p></div>
       <div class="step"><div class="step-num">2</div><h4>Add your customers</h4><p>Quickly build your client list with contact details.</p></div>
@@ -254,11 +256,11 @@ td{padding:12px 14px;font-size:14px;border-bottom:1px solid var(--border)}
       <div>
         <div class="review-spotlight-badge">⭐ Grow your reputation</div>
         <h2>Turn every finished job into a 5-star Google review</h2>
-        <p>More reviews mean more customers find you on Google. Zerviq makes asking for a review effortless, so you actually do it every single time instead of forgetting.</p>
+        <p>More reviews mean more customers find you on Google. Zerviq makes asking for a review effortless.</p>
         <ul class="review-spotlight-points">
           <li><div class="num">1</div><div>Mark a job as "Done" like you already do.</div></li>
           <li><div class="num">2</div><div>Zerviq instantly prompts you to ask for a review.</div></li>
-          <li><div class="num">3</div><div>One tap opens a text message to the customer with your Google review link already written in.</div></li>
+          <li><div class="num">3</div><div>One tap opens a text to the customer with your Google review link.</div></li>
         </ul>
       </div>
       <div class="review-demo">
@@ -266,144 +268,92 @@ td{padding:12px 14px;font-size:14px;border-bottom:1px solid var(--border)}
           <div class="review-demo-check">✅</div>
           <div style="font-weight:800;font-size:14px">Job marked as Done!</div>
         </div>
-        <div class="review-demo-bubble">
-          Hi Sarah, thank you for choosing Mike's Plumbing! If you were happy with the Leak Repair job, we'd really appreciate a quick Google review: g.page/r/yourlink
-        </div>
+        <div class="review-demo-bubble">Hi Sarah, thank you for choosing Mike's Plumbing! If you were happy with the Leak Repair job, we'd really appreciate a quick Google review: g.page/r/yourlink</div>
         <div class="review-demo-stars">★★★★★</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="smart-section">
+    <div class="section-label">Built-in intelligence</div>
+    <div class="section-title">Features no other service app has</div>
+    <div class="smart-grid">
+      <div class="smart-card">
+        <div class="smart-tag green">Idle Customer Alerts</div>
+        <h3>Your app tells you who to call next</h3>
+        <p>Zerviq learns how often each customer books. When someone goes quiet longer than usual, you get a nudge with one tap to send a check-in text.</p>
+        <div class="smart-mock">
+          <div class="smart-mock-row"><div class="smart-mock-title">💤 Carol White hasn't booked in a while</div><div class="smart-mock-desc">Usually every 28 days, been 52 days.</div></div>
+          <div class="smart-mock-row"><div class="smart-mock-title">💤 Mike Johnson is overdue</div><div class="smart-mock-desc">Usually every 14 days, been 31 days.</div></div>
+        </div>
+      </div>
+      <div class="smart-card">
+        <div class="smart-tag yellow">Price Drift Detector</div>
+        <h3>Never undercharge without realising it</h3>
+        <p>Zerviq quietly tracks what you charge per job type. If your prices have silently dropped, it flags it so you can fix it.</p>
+        <div class="smart-mock">
+          <div class="smart-mock-row"><div class="smart-mock-title">📉 Boiler Service price dropped</div><div class="smart-mock-desc">Down 14% in 90 days ($220 to $189).</div></div>
+          <div class="smart-mock-row"><div class="smart-mock-title">📉 Leak Repair down 9%</div><div class="smart-mock-desc">$175 to $159 recently.</div></div>
+        </div>
+      </div>
+      <div class="smart-card">
+        <div class="smart-tag blue">Auto Review Requests</div>
+        <h3>More Google reviews, zero extra effort</h3>
+        <p>Mark a job Done and Zerviq prompts you to ask for a review with a pre-written text message.</p>
+        <div class="smart-mock">
+          <div class="smart-mock-row"><div class="smart-mock-title">✅ Job marked as Done!</div><div class="smart-mock-desc">"Hi Sarah, thank you for choosing Mike's Plumbing!..."</div></div>
+        </div>
+      </div>
+      <div class="smart-card">
+        <div class="smart-tag purple">Revenue Intelligence</div>
+        <h3>Know your numbers at a glance</h3>
+        <p>Total revenue, unpaid invoices, job counts, and customer activity updated in real time.</p>
+        <div class="smart-mock">
+          <div class="smart-mock-row"><div class="smart-mock-title">💰 Revenue this month: $3,840</div><div class="smart-mock-desc">Up from $3,210 last month</div></div>
+          <div class="smart-mock-row"><div class="smart-mock-title">🧾 2 unpaid invoices - $640</div><div class="smart-mock-desc">Oldest is 12 days overdue</div></div>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="testimonial-section">
     <div class="section-label">What customers say</div>
-    <div class="section-title" style="margin-bottom:40px">Loved by service pros</div>
+    <div class="section-title">Loved by service pros</div>
     <div class="testimonials">
       <div class="testimonial-card">
         <div class="testimonial-stars">★★★★★</div>
-        <div class="testimonial-text">"I used to track jobs on paper. Zerviq cut my admin time in half and I get paid faster too."</div>
+        <div class="testimonial-text">"I used to track jobs on paper. Zerviq cut my admin time in half."</div>
         <div class="testimonial-author"><div class="testimonial-avatar">M</div><div><div class="testimonial-name">Mike R.</div><div class="testimonial-role">Plumbing Contractor</div></div></div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-stars">★★★★★</div>
-        <div class="testimonial-text">"Simple, clean, and exactly what a small electrical business needs. No bloated features I'll never use."</div>
+        <div class="testimonial-text">"Simple, clean, and exactly what a small electrical business needs."</div>
         <div class="testimonial-author"><div class="testimonial-avatar">S</div><div><div class="testimonial-name">Sarah K.</div><div class="testimonial-role">Electrician</div></div></div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-stars">★★★★★</div>
-        <div class="testimonial-text">"The auto-invoicing alone is worth it. I mark a job done and the invoice is just... there."</div>
-        <div class="testimonial-author"><div class="testimonial-avatar">D</div><div><div class="testimonial-name">David T.</div><div class="testimonial-role">Cleaning Service Owner</div></div></div>
+        <div class="testimonial-text">"The auto-invoicing alone is worth it. It's just... there."</div>
+        <div class="testimonial-author"><div class="testimonial-avatar">D</div><div><div class="testimonial-name">David T.</div><div class="testimonial-role">Cleaning Owner</div></div></div>
       </div>
     </div>
   </div>
 
   <div class="pricing">
     <div class="section-label">Pricing</div>
-    <h2 style="font-size:34px;font-weight:900;margin-bottom:12px">Simple, Honest Pricing</h2>
-    <p style="color:var(--muted);margin-bottom:40px">One plan. Everything included. No surprises.</p>
+    <h2 style="font-size:32px;font-weight:900;margin-bottom:12px">Simple, Honest Pricing</h2>
+    <p style="color:var(--muted);margin-bottom:36px">One plan. Everything included. No surprises.</p>
     <div class="price-card">
-      <div class="price-glow-badge">30-Day Free Trial</div>
+      <div class="price-badge">30-Day Free Trial</div>
       <div class="price-amount">$49<span style="font-size:18px;color:var(--muted)">/mo</span></div>
       <div style="color:var(--green);font-weight:600;margin-top:8px;font-size:14px">First month completely free</div>
       <ul class="price-features">
         <li>Unlimited Jobs &amp; Customers</li>
         <li>Auto Invoice Generation</li>
         <li>Revenue Dashboard</li>
-        <li>Plumbing, Electrical &amp; Cleaning Support</li>
+        <li>Smart Business Insights</li>
         <li>Mobile Friendly</li>
       </ul>
       <button class="btn btn-primary" style="width:100%;padding:14px;font-size:15px" onclick="showAuth('register')">Get Started Free</button>
-    </div>
-  </div>
-
-  <div class="smart-section">
-    <div class="section-label">Built-in intelligence</div>
-    <div class="section-title" style="margin-bottom:40px">Features no other service app has</div>
-    <div class="smart-grid">
-
-      <div class="smart-card green-glow">
-        <div class="smart-tag green">💤 Idle Customer Alerts</div>
-        <h3>Your app tells you who to call next</h3>
-        <p>Zerviq learns how often each customer books. When someone goes quiet longer than usual, you get a nudge — with one tap to send them a check-in text.</p>
-        <div class="mock">
-          <div class="mock-row">
-            <div class="mock-icon">💤</div>
-            <div class="mock-text">
-              <div class="mock-title">Carol White hasn't booked in a while</div>
-              <div class="mock-desc">Usually books every 28 days, but it's been 52 days since the last job.</div>
-              <div class="mock-btn">Send check-in text</div>
-            </div>
-          </div>
-          <div class="mock-row">
-            <div class="mock-icon">💤</div>
-            <div class="mock-text">
-              <div class="mock-title">Mike Johnson is overdue</div>
-              <div class="mock-desc">Usually books every 14 days, but it's been 31 days since the last job.</div>
-              <div class="mock-btn">Send check-in text</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="smart-card yellow-glow">
-        <div class="smart-tag yellow">📉 Price Drift Detector</div>
-        <h3>Never undercharge without realising it</h3>
-        <p>Zerviq quietly tracks what you charge for each job type over time. If your prices have silently dropped — often from forgetting to adjust — it flags it so you can fix it.</p>
-        <div class="mock">
-          <div class="mock-row">
-            <div class="mock-icon">📉</div>
-            <div class="mock-text">
-              <div class="mock-title">Your Boiler Service price has dropped</div>
-              <div class="mock-desc">Average price fell 14% in the last 90 days ($220 → $189). Worth reviewing your rates.</div>
-            </div>
-          </div>
-          <div class="mock-row">
-            <div class="mock-icon">📉</div>
-            <div class="mock-text">
-              <div class="mock-title">Leak Repair prices are down 9%</div>
-              <div class="mock-desc">Average dropped from $175 to $159 recently.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="smart-card blue-glow">
-        <div class="smart-tag blue">⭐ Auto Review Requests</div>
-        <h3>More Google reviews, zero extra effort</h3>
-        <p>Mark a job Done and Zerviq prompts you to ask for a review. One tap opens a pre-written text to the customer with your Google review link already included.</p>
-        <div class="mock">
-          <div class="mock-row">
-            <div class="mock-icon">✅</div>
-            <div class="mock-text">
-              <div class="mock-title">Job marked as Done!</div>
-              <div class="mock-desc">"Hi Sarah, thank you for choosing Mike's Plumbing! If you were happy with the Leak Repair, we'd really appreciate a quick Google review: g.page/r/..."</div>
-              <div class="mock-btn">Send review request</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="smart-card" style="border-color:rgba(124,58,237,.3)">
-        <div class="smart-tag purple">📊 Revenue Intelligence</div>
-        <h3>Know your business numbers at a glance</h3>
-        <p>Total revenue, unpaid invoices, job counts, and customer activity — all updated in real time so you always know exactly where your business stands.</p>
-        <div class="mock">
-          <div class="mock-row">
-            <div class="mock-icon">💰</div>
-            <div class="mock-text">
-              <div class="mock-title">Revenue this month: $3,840</div>
-              <div class="mock-desc">Up from $3,210 last month</div>
-            </div>
-          </div>
-          <div class="mock-row">
-            <div class="mock-icon">🧾</div>
-            <div class="mock-text">
-              <div class="mock-title">2 unpaid invoices — $640 outstanding</div>
-              <div class="mock-desc">Oldest is 12 days overdue</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 
@@ -458,7 +408,8 @@ td{padding:12px 14px;font-size:14px;border-bottom:1px solid var(--border)}
   <div class="card paywall-card">
     <h2 style="font-size:26px;font-weight:900;margin-bottom:10px">Your Free Trial Has Ended</h2>
     <p style="color:var(--muted);margin-bottom:24px">Upgrade to keep using Zerviq.</p>
-    <button class="btn btn-primary" style="width:100%;padding:14px;margin-bottom:10px" onclick="doLogout()">Logout</button>
+    <button class="btn btn-primary" style="width:100%;padding:14px;margin-bottom:10px" onclick="goToStripe()">Upgrade Now - $49/mo</button>
+    <button class="btn btn-outline" style="width:100%" onclick="doLogout()">Logout</button>
   </div>
 </div>
 
@@ -584,7 +535,7 @@ td{padding:12px 14px;font-size:14px;border-bottom:1px solid var(--border)}
   <div class="tour-card">
     <div class="tour-step-icon" id="tour-icon">👋</div>
     <h3 id="tour-title">Welcome to Zerviq!</h3>
-    <p id="tour-desc">Let's take a quick 30-second tour so you know exactly how to manage your business here.</p>
+    <p id="tour-desc">Let's take a quick tour.</p>
     <div class="tour-dots" id="tour-dots"></div>
     <div class="tour-footer">
       <button class="tour-skip" onclick="skipTour()">Skip tour</button>
@@ -597,10 +548,10 @@ td{padding:12px 14px;font-size:14px;border-bottom:1px solid var(--border)}
   <div class="review-card">
     <div class="review-icon">✅</div>
     <h3>Job marked as Done!</h3>
-    <p id="review-customer-text">Was the customer happy with the work? Ask them for a quick Google review while it's fresh.</p>
+    <p id="review-customer-text">Was the customer happy? Ask for a Google review.</p>
     <div class="review-btns">
       <button class="btn btn-outline btn-sm" onclick="closeReviewPrompt()">Skip for now</button>
-      <button class="btn btn-primary btn-sm" id="review-send-btn" onclick="sendReviewRequest()">Send Review Request</button>
+      <button class="btn btn-primary btn-sm" onclick="sendReviewRequest()">Send Review Request</button>
     </div>
     <div class="review-link-row">
       <input type="text" id="google-review-link" placeholder="Paste your Google review link here"/>
@@ -612,6 +563,7 @@ td{padding:12px 14px;font-size:14px;border-bottom:1px solid var(--border)}
 <script>
 var SUPABASE_URL = "https://dgioyzuklczfojvhgjev.supabase.co";
 var SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRnaW95enVrbGN6Zm9qdmhnamV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyMzE5NjMsImV4cCI6MjA5NjgwNzk2M30.lAcL28uckrETdUAngs6J-DITl0vFBd_Tr-pSq641QVI";
+var STRIPE_URL = "https://buy.stripe.com/dRmbJ21mUgMr2LB5qpgjC00";
 
 var JOB_TYPES = {
   plumbing: ["Leak Repair","Pipe Installation","Boiler Service","Drain Unblocking","Bathroom Fit"],
@@ -626,6 +578,7 @@ var userProfile = null;
 var allCustomers = [];
 var allJobs = [];
 var allInvoices = [];
+var reviewPromptJob = null;
 
 var SCREENS = ["loading-screen","landing","auth-page","paywall","app"];
 
@@ -681,15 +634,9 @@ function init() {
   });
 }
 
-function checkAccess() {
-  var created = new Date(currentUser.created_at);
-  var daysOld = (Date.now() - created.getTime()) / 86400000;
-  var isSubscribed = userProfile && userProfile.is_subscribed;
-  if (daysOld > 30 && !isSubscribed) { show("paywall"); return false; }
-  return true;
-}
+function loadProfile() {
   return db.from("profiles").select("*").eq("id", currentUser.id).single().then(function (res) {
-    userProfile = res.data || { id: currentUser.id, business_type: "plumbing", full_name: currentUser.email, has_seen_tour: false };
+    userProfile = res.data || { id: currentUser.id, business_type: "plumbing", full_name: currentUser.email, has_seen_tour: false, is_subscribed: false };
   });
 }
 
@@ -812,7 +759,6 @@ function renderDashboard() {
   }
 }
 
-// ── INSIGHT ENGINE ──────────────────────────────────
 function daysBetween(d1, d2) {
   return Math.round((d2.getTime() - d1.getTime()) / 86400000);
 }
@@ -839,18 +785,18 @@ function getIdleCustomerInsights() {
     for (var g = 1; g < dates.length; g++) {
       gaps.push(daysBetween(dates[g - 1], dates[g]));
     }
-    var avgGap = gaps.reduce(function (s, v) { return s + v; }, 0) / gaps.length;
+    var sum = 0;
+    for (var gi = 0; gi < gaps.length; gi++) sum += gaps[gi];
+    var avgGap = sum / gaps.length;
     var lastDate = dates[dates.length - 1];
     var daysSinceLast = daysBetween(lastDate, new Date());
     if (avgGap > 0 && daysSinceLast > avgGap * 1.5 && daysSinceLast > 14) {
       var custName = cn(custId);
       insights.push({
-        type: "warn",
-        icon: "💤",
+        type: "warn", icon: "💤",
         title: custName + " hasn't booked in a while",
-        desc: "Usually books every " + Math.round(avgGap) + " days, but it's been " + daysSinceLast + " days since the last job.",
-        custId: custId,
-        custName: custName
+        desc: "Usually books every " + Math.round(avgGap) + " days, but it's been " + daysSinceLast + " days.",
+        custId: custId
       });
     }
   }
@@ -884,16 +830,17 @@ function getPriceDriftInsights() {
       else older.push(entries[e].amount);
     }
     if (recent.length < 2 || older.length < 2) continue;
-    var avgRecent = recent.reduce(function (s, v) { return s + v; }, 0) / recent.length;
-    var avgOlder = older.reduce(function (s, v) { return s + v; }, 0) / older.length;
+    var sr = 0; for (var ri = 0; ri < recent.length; ri++) sr += recent[ri];
+    var so = 0; for (var oi = 0; oi < older.length; oi++) so += older[oi];
+    var avgRecent = sr / recent.length;
+    var avgOlder = so / older.length;
     if (avgOlder <= 0) continue;
     var pctChange = ((avgRecent - avgOlder) / avgOlder) * 100;
     if (pctChange <= -8) {
       insights.push({
-        type: "info",
-        icon: "📉",
+        type: "info", icon: "📉",
         title: "Your " + type + " price has dropped",
-        desc: "Average price fell " + Math.abs(Math.round(pctChange)) + "% over the last 90 days ($" + avgOlder.toFixed(0) + " to $" + avgRecent.toFixed(0) + "). Worth reviewing your rates."
+        desc: "Average fell " + Math.abs(Math.round(pctChange)) + "% recently ($" + avgOlder.toFixed(0) + " to $" + avgRecent.toFixed(0) + ")."
       });
     }
   }
@@ -910,7 +857,7 @@ function renderInsights() {
     var ins = insights[i];
     html += '<div class="insight-card ' + ins.type + '">';
     html += '<div class="insight-icon">' + ins.icon + '</div>';
-    html += '<div class="insight-text">';
+    html += '<div style="flex:1">';
     html += '<div class="insight-title">' + ins.title + '</div>';
     html += '<div class="insight-desc">' + ins.desc + '</div>';
     if (ins.custId) {
@@ -924,12 +871,11 @@ function renderInsights() {
 function textIdleCustomer(custId) {
   var customer = null;
   for (var i = 0; i < allCustomers.length; i++) { if (allCustomers[i].id === custId) customer = allCustomers[i]; }
-  if (!customer || !customer.phone) { toast("No phone number saved for this customer.", "error"); return; }
+  if (!customer || !customer.phone) { toast("No phone number saved.", "error"); return; }
   var businessName = (userProfile && userProfile.full_name) ? userProfile.full_name : "us";
   var message = "Hi " + customer.name + ", it's been a while since your last service with " + businessName + ". Want to get something booked in?";
   var cleanPhone = customer.phone.replace(/[^0-9+]/g, "");
-  var smsUrl = "sms:" + cleanPhone + "?body=" + encodeURIComponent(message);
-  window.open(smsUrl, "_blank");
+  window.open("sms:" + cleanPhone + "?body=" + encodeURIComponent(message), "_blank");
 }
 
 function renderJobs() {
@@ -1032,18 +978,13 @@ function markDone(id) {
   });
 }
 
-// ── REVIEW REQUEST ─────────────────────────────────
-var reviewPromptJob = null;
-
 function openReviewPrompt(job) {
   var customer = null;
   for (var i = 0; i < allCustomers.length; i++) { if (allCustomers[i].id === job.customer_id) customer = allCustomers[i]; }
   if (!customer || !customer.phone) { return; }
   reviewPromptJob = job;
-  var textEl = document.getElementById("review-customer-text");
-  textEl.textContent = "Ask " + customer.name + " for a quick Google review while the job is fresh.";
-  var linkInput = document.getElementById("google-review-link");
-  linkInput.value = (userProfile && userProfile.google_review_link) || "";
+  document.getElementById("review-customer-text").textContent = "Ask " + customer.name + " for a quick Google review while the job is fresh.";
+  document.getElementById("google-review-link").value = (userProfile && userProfile.google_review_link) || "";
   document.getElementById("review-overlay").classList.remove("hidden");
 }
 
@@ -1054,14 +995,10 @@ function closeReviewPrompt() {
 
 function saveReviewLink() {
   var link = document.getElementById("google-review-link").value.trim();
-  if (!link) { return; }
-  if (userProfile) { userProfile.google_review_link = link; }
+  if (!link) return;
+  if (userProfile) userProfile.google_review_link = link;
   try {
-    if (currentUser && currentUser.id) {
-      db.from("profiles").update({ google_review_link: link }).eq("id", currentUser.id).then(function(){
-        toast("Review link saved!");
-      });
-    }
+    db.from("profiles").update({ google_review_link: link }).eq("id", currentUser.id).then(function(){ toast("Review link saved!"); });
   } catch (e) {}
 }
 
@@ -1076,8 +1013,7 @@ function sendReviewRequest() {
   var message = "Hi " + customer.name + ", thank you for choosing " + businessName + "! If you were happy with the " + reviewPromptJob.type + " job, we'd really appreciate a quick Google review";
   if (reviewLink) { message += ": " + reviewLink; } else { message += "."; }
   var cleanPhone = customer.phone.replace(/[^0-9+]/g, "");
-  var smsUrl = "sms:" + cleanPhone + "?body=" + encodeURIComponent(message);
-  window.open(smsUrl, "_blank");
+  window.open("sms:" + cleanPhone + "?body=" + encodeURIComponent(message), "_blank");
   closeReviewPrompt();
 }
 
@@ -1204,7 +1140,7 @@ function doRegister() {
   db.auth.signUp({ email: email, password: pass, options: { data: { full_name: name, business_type: btype } } }).then(function (res) {
     if (res.error) { setErr("reg-err", res.error.message); return; }
     if (res.data.user) {
-      db.from("profiles").upsert({ id: res.data.user.id, full_name: name, business_type: btype }).then(function () {
+      db.from("profiles").upsert({ id: res.data.user.id, full_name: name, business_type: btype, has_seen_tour: false, is_subscribed: false }).then(function () {
         setSuccess("reg-success", "Account created! You can now login.");
       });
     } else {
@@ -1223,6 +1159,7 @@ function doLogout() {
     showLanding();
   });
 }
+function goToStripe() { window.open(STRIPE_URL, "_blank"); }
 
 function openModal(id) {
   document.getElementById(id).classList.remove("hidden");
@@ -1267,16 +1204,15 @@ function setSuccess(id, msg) {
 }
 function hideEl(id) { document.getElementById(id).classList.add("hidden"); }
 
-// ── ONBOARDING TOUR ────────────────────────────────
 var TOUR_STEPS = [
-  { icon: "👋", title: "Welcome to Zerviq!", desc: "This is your business command center. Let's take a quick tour so you know exactly how everything works — including some features no other app has." },
-  { icon: "👥", title: "Step 1 — Add Customers", desc: "Head to Customers and add your first client. Just a name, phone number, and address. The phone number is important — Zerviq uses it to send automatic messages later." },
-  { icon: "📋", title: "Step 2 — Create Jobs", desc: "Go to Jobs and click \"New Job\". Assign it to a customer, pick the job type for your trade, set the date, time, and price." },
-  { icon: "🧾", title: "Step 3 — Auto Invoicing", desc: "When you mark a job as \"Done\", Zerviq automatically creates an invoice. Just mark it Paid once the customer settles up. No manual paperwork ever." },
-  { icon: "⭐", title: "Step 4 — Get Google Reviews", desc: "Every time you mark a job Done, Zerviq prompts you to send a review request. One tap opens a pre-written text to your customer with your Google review link — so you never forget to ask." },
-  { icon: "💤", title: "Step 5 — Idle Customer Alerts", desc: "Zerviq learns how often each customer books. If someone goes quiet longer than usual, you'll see a nudge on the Dashboard with a one-tap check-in text ready to send." },
-  { icon: "📉", title: "Step 6 — Price Drift Alerts", desc: "Zerviq quietly tracks what you charge per job type. If your prices have silently dropped over time, it will flag it on your Dashboard so you can fix it before you lose more revenue." },
-  { icon: "📊", title: "You're all set!", desc: "Your Dashboard shows total jobs, customers, revenue, and smart insights — all updated in real time. Go add your first customer and create your first job!" }
+  { icon: "👋", title: "Welcome to Zerviq!", desc: "This is your business command center. Let's take a quick tour." },
+  { icon: "👥", title: "Step 1 - Add Customers", desc: "Head to Customers and add your first client. The phone number is important - Zerviq uses it to send automatic messages later." },
+  { icon: "📋", title: "Step 2 - Create Jobs", desc: "Go to Jobs and click New Job. Assign it to a customer, pick the job type, set the date and price." },
+  { icon: "🧾", title: "Step 3 - Auto Invoicing", desc: "When you mark a job Done, Zerviq automatically creates an invoice." },
+  { icon: "⭐", title: "Step 4 - Get Google Reviews", desc: "Every time you mark a job Done, Zerviq prompts you to send a review request with one tap." },
+  { icon: "💤", title: "Step 5 - Idle Customer Alerts", desc: "Zerviq learns booking patterns. If someone goes quiet, you'll see a nudge on the Dashboard." },
+  { icon: "📉", title: "Step 6 - Price Drift Alerts", desc: "Zerviq tracks your prices per job type and flags it if they quietly drop." },
+  { icon: "📊", title: "You're all set!", desc: "Go add your first customer and create your first job!" }
 ];
 var tourStep = 0;
 
@@ -1298,8 +1234,7 @@ function renderTourStep() {
     dot.className = "tour-dot" + (i === tourStep ? " active" : "");
     dotsEl.appendChild(dot);
   }
-  var nextBtn = document.getElementById("tour-next");
-  nextBtn.textContent = (tourStep === TOUR_STEPS.length - 1) ? "Get Started" : "Next";
+  document.getElementById("tour-next").textContent = (tourStep === TOUR_STEPS.length - 1) ? "Get Started" : "Next";
 }
 
 function nextTourStep() {
